@@ -1,0 +1,63 @@
+.operaciones{
+    margin-top:30%;
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    background-color: coral;
+    border: solid violet;
+    text-align:center;
+    font-weight: bold;
+    border-radius: 25%;
+    color: aqua;
+}
+.pizarra{
+    margin-top:10%;
+    background-color: black;
+    width: 600px;
+    height: 400px;
+    color:white;
+    font-size: 50px;
+    text-align: center;
+    border: 10px solid chocolate;
+    padding-top: 25%; 
+}
+#resultados div{
+    background-color: black;
+    display: inline-block;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    margin-top:1%;
+    margin-left:1%;
+    text-align: center;
+    color: white;
+    font-size: 25px;
+    transition: left 1s, top 1s;
+}
+#correcto{
+    border: 5px white solid;
+    width: 70px;
+    height: 80px;
+    position: absolute;
+    left: 73%;
+    top: 42%;
+}
+#tiempo{
+    color:white;
+    background-color:black;
+    border: chocolate 10px solid;
+    border-radius:45%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    font-size:50px;
+    margin-top: 5%;
+}
+#aciertos{
+    color:blue;
+    background-color:violet;
+    border: lightgreen 10px solid;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    font-size:50px;
+    margin-top: 5%;
+}

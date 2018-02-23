@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="web-fonts-with-css/css/fontawesome-all.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Pen+Script" rel="stylesheet">
+   
+    <script>
+        // Leer Cookie
+        var leerCookie = function (key) {
+            keyValue = document.cookie.match("(^|;) ?" + key + "=([^;]*)(;|$)");
+            if (keyValue) {
+            //    log("getCookie: " + key + "=" + keyValue[2]);
+                return keyValue[2];
+            } else {
+            //    log("getCookie: " + key + "=" + "null");
+                return null;
+            }
+        }
+            $(document).ready(function () {
+                
+                $(".joy").on("click",function () {
+                    alert(ruta);
+                    var ruta = leerCookie('ruta');
+                    switch (ruta) {
+                        case "angela":
+                            ruta+="/angela_contenta.mp3";
+                            break;
+                        case "ginger":
+                            ruta+="/ginger_alegre.mp3";
+                            break;
+                        case "tom":
+                            ruta+="/tom_alegre.mp3";
+                            break;
+                    }
+                    var audio = new Audio(ruta);
+                    audio.play();
+                    setTimeout(function () {
+                        window.location="../principal/index.html";
+                    },7000);
+                });
+           
+                $(".disgust").on("click",function () {
+                    var ruta = leerCookie('ruta');
+                    switch (ruta) {
+                        case "angela":
+                            ruta+="/angela_disgustada.mp3";
+                            break;
+                        case "ginger":
+                            ruta+="/ginger_disgustado.mp3";
+                            break;
+                        case "tom":
+                            ruta+="/tom_disgustado.mp3";
+                            break;
+                    }
+                    var audio = new Audio(ruta);
+                    audio.play();
+                    setTimeout(function () {
+                        window.location="../principal/index.html";
+                    },7000);
+                });
+           
+                $(".anger").on("click",function () {
+                    var ruta = leerCookie('ruta');
+                    switch (ruta) {
+                        case "angela":
+                            ruta+="/angela_enfadada.mp3";
+                            break;
+                        case "ginger":
+                            ruta+="/ginger_enfadado.mp3";
+                            break;
+                        case "tom":
+                            ruta+="/tom_enfado.mp3";
+                            break;
+                    }
+                    var audio = new Audio(ruta);
+                    audio.play();
+                    setTimeout(function () {
+                        window.location="../principal/index.html";
+                    },7000);
+                });
+          
+                $(".fear").on("click",function () {
+                    var ruta = leerCookie('ruta');
+                    switch (ruta) {
+                        case "angela":
+                            ruta+="/angela_miedo.mp3";
+                            break;
+                        case "ginger":
+                            ruta+="/ginger_miedo.mp3";
+                            break;
+                        case "tom":
+                            ruta+="/tom_miedo.mp3";
+                            break;
+                    }
+                    var audio = new Audio(ruta);
+                    audio.play();
+                    setTimeout(function () {
+                        window.location="../principal/index.html";
+                    },7000);
+                });
+          
+                $(".sadness").on("click",function () {
+                    var ruta = leerCookie('ruta');
+                    switch (ruta) {
+                        case "angela":
+                            ruta+="/angela_triste.mp3";
+                            break;
+                        case "ginger":
+                            ruta+="/ginger_triste.mp3";
+                            break;
+                        case "tom":
+                            ruta+="/tom_triste.mp3";
+                            break;
+                    }
+                    var audio = new Audio(ruta);
+                    audio.play();
+                    setTimeout(function () {
+                        window.location="../principal/index.html";
+                    },7000);
+                });
+            });
+    </script>
+    <style>
+        img{
+            border: 5px black solid;
+            border-radius: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row" style="margin-top:15%;">
+            <div class="col-md-1"></div>
+            <div class="col-md-2">
+                <img src="../imagenes/alegria.png" class="joy">
+            </div>
+            <div class="col-md-2">
+                <img src="../imagenes/disgustado.png" class="disgust">
+            </div>
+            <div class="col-md-2">
+                <img src="../imagenes/enfadado.png" class="anger">
+            </div>
+            <div class="col-md-2">
+                <img src="../imagenes/miedo.png" class="fear">
+            </div>
+            <div class="col-md-2">
+                <img src="../imagenes/tristeza.png" class="sadness">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

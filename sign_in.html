@@ -1,0 +1,166 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="web-fonts-with-css/css/fontawesome-all.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script>
+        
+
+
+
+        $(document).ready(function () {
+            $("#sign_in").on("click",function () {
+                if(validar){
+                    insertUser();
+                }else{
+                    alert("Campos erróneos");
+                }
+            });
+        });
+
+
+        $(document).ready(function () {
+            $("#back").on("click",function () {
+                window.location="login.html";
+            });
+        });
+
+        
+
+    </script>
+    <!--AJAX con PHP -->
+    <script>
+        function insertUser () {
+            var xhr	= new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                        if (this.responseText.includes('Error')) {
+                            alert(this.responseText);
+                        } else {
+                            alert(this.responseText);
+                            window.location = "personajes.html";
+                        }
+                        
+                    }
+                };
+            xhr.open("POST", "sign_in.php", true);
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            var username = document.getElementById('username').value;
+            var passwd = document.getElementById('passwd').value;
+            var biography = document.getElementById('biography').value;
+            var email = document.getElementById('email').value;
+            var phone = document.getElementById('phone').value;
+            var sex = document.getElementById('sex').value;
+            var parametros = "accion=insertUser" + "&username=" + username + "&passwd=" + passwd + "&biography=" + biography + "&email=" + email + "&phone=" + phone + "&sex=" + sex;
+            xhr.send(parametros);
+        }
+        function validar() {
+            username = document.getElementById("username").value;
+            if( username == null || username.length == 0 || /^\s+$/.test(username) ) {
+                return false;
+            }
+            passwd = document.getElementById("passwd").value;
+            if( passwd == null || passwd.length == 0 || /^\s+$/.test(passwd) ) {
+                return false;
+            }
+            email = document.getElementById("email").value;
+            if( !(/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)/.test(email) || email == null || email.length == 0) ) {
+                return false;
+            }
+            phone = document.getElementById("phone").value;
+            if( !(/^\d{9}$/.test(phone)) ) {
+                return false;
+            }   
+            return true;
+            
+        }
+    </script>
+ </head>
+ <body>
+    <!-- Form Name -->
+    
+    <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <legend>Bienvenido! 🖐</legend>
+                </div>
+                <div class="col-md-4" style="margin-top:40px;">
+                    <form>
+                        <i class="fas fa-info-circle"></i><font face="calibri" size=5> Información privada</font>
+                        <br><br>
+                    <div class="form-group">
+                        <label class="control-label">Nombre Usuario</label>  
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="far fa-user"></i></span>
+                                <input  name="username" id="username" placeholder="Tu nombre!" class="form-control"  type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Contraseña</label>  
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fas fa-unlock-alt"></i></span>                                 
+                                <input type="password" name="passwd" id="passwd" placeholder="Contraseña" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Biografía</label>
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                                <textarea class="form-control" name="biography" id="biography" placeholder="¿Que te gusta?"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">E-Mail</label>  
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                <input name="email" id="email" placeholder="Correo Electrónico" class="form-control"  type="email">
+                            </div>
+                        </div>
+                    </div>
+                              
+                    <div class="form-group">
+                        <label class="control-label">Telefono</label>  
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                                <input name="phone" id="phone" placeholder="928759006" class="form-control" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group"> 
+                        <label class="control-label">Sexo</label>
+                        <div class="selectContainer">
+                            <div class="input-group">   
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                                <select name="sex" class="form-control selectpicker" id ="sex">
+                                    <option value="boy">Niño 👦</option>
+                                    <option value="girl">Niña 👧</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                        
+                <button type="button" name="sign_in" id="sign_in" class="btn btn-info" >¡Registrarse! <span class="glyphicon glyphicon-send"></span></button>
+                <button type="button" name="back" id="back" class="btn btn-danger" >¡Volver! 🙈 </button>
+            </form>
+                </div>
+            </div>
+        </div>
+        <div id="user">
+        </div>
+ </body>
+ </html>
+ 
+ 
