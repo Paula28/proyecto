@@ -104,12 +104,12 @@ var methods = {
         }
         posibles.push(resultado);
         posibles = posibles.sort(function() {
-            return Math.random() - 0.5;
+            return Math.random() - 0.5;//el 0.5 para desordenar el random
         });
         return posibles;
     },
-    mover: function () {
-        atun1 = setInterval(function () {
+    mover: function () {//setInterval bucle
+        atun1 = setInterval(function () {//eje x
             bordesResultado = document.getElementById("resultado").getBoundingClientRect();
             bordesCorrecto = document.getElementById("correcto").getBoundingClientRect();
             $("#resultado").css("left","+=6px");
@@ -117,7 +117,7 @@ var methods = {
                 clearInterval(atun1);
             }
         },30);
-        atun2 = setInterval(function () {
+        atun2 = setInterval(function () {//eje y
             bordesResultado = document.getElementById("resultado").getBoundingClientRect();
             bordesCorrecto = document.getElementById("correcto").getBoundingClientRect();
             $("#resultado").css("top","-=3px");
@@ -142,7 +142,7 @@ var methods = {
         }   
     }
 }
-var timer = {
+var timer = {//time para las operaciones
     interval: null,
     time: 60,
     init: function(){
@@ -157,7 +157,7 @@ var timer = {
             timer.draw();
         }, 1000);
     },
-    check: function(operacion){
+    check: function(operacion){//cuando falla si el tiempo se acaba
         if(timer.time < 0){
             timer.reset();
             var sonido = new Audio("wrong.wav");
